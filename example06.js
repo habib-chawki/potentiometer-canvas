@@ -23,7 +23,6 @@ fs.readFile("./example06.html", (err, html) => {
   }
 });
 
-let valueToSend = 0;
 let sendValue = function() {};
 
 board.on("ready", () => {
