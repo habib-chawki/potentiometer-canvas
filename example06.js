@@ -34,10 +34,12 @@ board.on("ready", () => {
 
 wss.on("connection", ws => {
   sendValue = value => {
-    try {
-      ws.send(value);
-    } catch (e) {
-      console.log("Something went wrong ... " + e);
+    if (ws.readyState === WebSocket.OPEN) {
+      try {
+        ws.send(value);
+      } catch (e) {
+        console.log("Something went wrong ... " + e);
+      }
     }
   };
 });
